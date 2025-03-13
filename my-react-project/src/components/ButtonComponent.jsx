@@ -1,7 +1,7 @@
 
 function ButtonComponent() {
   return (
-    <button className="p-5 flex items-center justify-center bg-indigo-500 text-white">I`m a Button</button>
+    <button className="p-2 flex items-center justify-center bg-indigo-500 text-white" onClick={() => {alert("")}}>Mostrar Películas</button>
   )
 }
 
