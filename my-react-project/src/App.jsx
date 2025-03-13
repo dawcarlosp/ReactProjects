@@ -4,6 +4,7 @@ import HeaderComponent from './components/HeaderComponent'
 import MovieList from './components/MovieList'
 import AnimalList from './components/AnimalList'
 import Login from './components/Login'
+import MemeList from './components/MemeList'
 import { useEffect, useState } from "react";
 function App() {
   //para mostrar peliculas
@@ -46,6 +47,7 @@ function App() {
      {showMovies && <MovieList></MovieList>}
 
      <AnimalList></AnimalList>
+     <MemeList></MemeList>
     </>
   )
 }

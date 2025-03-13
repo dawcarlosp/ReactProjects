@@ -8,6 +8,9 @@ function Login(props) {
     const setUsername = (e) => {
         user.username = e.target.value;
     }
+    const setEmail = (e) => {
+        user.email = e.target.value;
+    }
     const handleSubmit = (ev) =>{
         ev.preventDefault();
         console.log(user);
@@ -17,7 +20,14 @@ function Login(props) {
     <section>
         <h2>Login section</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" id="username" onChange={setUsername}/>
+            <fieldset>
+            <label htmlFor="username">Username:</label>
+            <input type="text" id="username" onChange={setUsername} className='border'/>
+            </fieldset>
+            <fieldset>
+            <label htmlFor="email">Email:</label>
+            <input type="text" id="email" onChange={setEmail} className='border'/>
+            </fieldset>
         <button>Login</button>
         </form>
     </section>
