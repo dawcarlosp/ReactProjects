@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard"
+import GetForm from "./GetForm";
 function PokemonList(props) {
   const [pokemons, setPokemons] = useState([]);
   useEffect(() => {
-    getPokemons(50);
+    getPokemons(1,10);
   }, [])
   const fetchPokemon = async (index) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}`);
     const data = await response.json();
     return data;
   }
-  const getPokemons = async(cantidad) => {
+  const getPokemons = async(from,to) => {
     const pokemonArr = [];
-    for (let i = 1; i <= cantidad; i++) {
+    for (let i = from; i <= to; i++) {
       const pokemon = await fetchPokemon(i);
       pokemonArr.push(pokemon);
     }
@@ -22,9 +23,12 @@ function PokemonList(props) {
     return   <PokemonCard key={pokemon.id} pokemon={pokemon} selectPokemon={props.selectPokemon}></PokemonCard>
   })
   return (
+    <div>
+          <GetForm getPokemons={getPokemons}></GetForm>
     <ul className="flex flex-wrap gap-2 items-center justify-center">
       {pokemonCards}
     </ul>
+    </div>
   )
 }
 
