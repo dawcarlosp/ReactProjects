@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard"
 import GetForm from "./GetForm";
+import { PokemonContext } from "../context/pokemon.context";
 function PokemonList(props) {
-  const [pokemons, setPokemons] = useState([]);
+  //const [pokemons, setPokemons] = useState([]);
+  const {pokemons, setPokemons} = useContext(PokemonContext)
   useEffect(() => {
     getPokemons(1,10);
   }, [])
